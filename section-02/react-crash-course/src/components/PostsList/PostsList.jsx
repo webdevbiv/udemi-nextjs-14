@@ -22,17 +22,27 @@ function PostsList({ modalIsOpen, toggleModal }) {
           <NewPost onCancel={toggleModal} onSubmit={addPost} />
         </Modal>
       )}
-      <ul className={styles.posts}>
-        {posts.map((post) => (
-          <Post key={nextId()} author={post.author} body={post.body} />
-        ))}
-      </ul>
+      {posts.length > 0 && (
+        <ul className={styles.posts}>
+          {posts.map((post) => (
+            <Post key={nextId()} author={post.author} body={post.body} />
+          ))}
+        </ul>
+      )}
+      {posts.length === 0 && (
+        <>
+          <div style={{ textAlign: "center", color: "white" }}>
+            <h2>There are no posts yet.</h2>
+            <p>Start adding some!</p>
+          </div>
+        </>
+      )}
     </>
   );
 }
 
 PostsList.propTypes = {
-  modalIsOpen: PropTypes.func.isRequired,
+  modalIsOpen: PropTypes.bool.isRequired,
   toggleModal: PropTypes.func.isRequired,
 };
 
