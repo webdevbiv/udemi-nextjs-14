@@ -1,7 +1,7 @@
 import PropTypes from "prop-types";
 import styles from "./NewPost.module.css";
 
-const NewPost = (props) => {
+const NewPost = ({ onBodyChange, onNameChange, onCancel, body }) => {
   return (
     <form className={styles.form}>
       <p>
@@ -10,18 +10,24 @@ const NewPost = (props) => {
           id="body"
           required
           rows={3}
-          onChange={props.onBodyChange}
+          onChange={onBodyChange}
         ></textarea>
       </p>
-      <p>{props.body}</p>
+      <p>{body}</p>
       <p>
         <label htmlFor="name">Your name</label>
         <textarea
-          name=""
+          type="text"
           id="name"
           required
-          onChange={props.onNameChange}
+          onChange={onNameChange}
         ></textarea>
+      </p>
+      <p className={styles.actions}>
+        <button type="button" onClick={onCancel}>
+          Cancel
+        </button>
+        <button type="submit">Submit</button>
       </p>
     </form>
   );
@@ -30,6 +36,7 @@ const NewPost = (props) => {
 NewPost.propTypes = {
   onBodyChange: PropTypes.func.isRequired,
   onNameChange: PropTypes.func.isRequired,
+  onCancel: PropTypes.func.isRequired,
   body: PropTypes.string,
 };
 

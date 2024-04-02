@@ -1,17 +1,14 @@
+import PropTypes from "prop-types";
 import { useState } from "react";
 import NewPost from "../NewPost/NewPost";
 import Post from "../Post/Post";
 import Modal from "../Modal/Modal";
 import styles from "./PostsList.module.css";
 
-function PostsList() {
-  const [modalIsOpen, setModalIsOpen] = useState(false);
+function PostsList({ modalIsOpen, toggleModal }) {
   const [body, setBody] = useState("");
   const [author, setAuthor] = useState("");
 
-  const toggleModal = () => {
-    setModalIsOpen(!modalIsOpen);
-  };
   const handleBodyChange = (event) => {
     setBody(event.target.value);
   };
@@ -27,6 +24,7 @@ function PostsList() {
           <NewPost
             onBodyChange={handleBodyChange}
             onNameChange={handleAuthorChange}
+            onCancel={toggleModal}
             body={body}
             author={author}
           />
@@ -41,5 +39,10 @@ function PostsList() {
     </>
   );
 }
+
+PostsList.propTypes = {
+  modalIsOpen: PropTypes.any,
+  toggleModal: PropTypes.any,
+};
 
 export default PostsList;
