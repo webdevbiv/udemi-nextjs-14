@@ -1,16 +1,38 @@
+import { useState } from "react";
 import PropTypes from "prop-types";
 import styles from "./NewPost.module.css";
 
-const NewPost = ({ onBodyChange, onNameChange, onCancel, body }) => {
+const NewPost = ({ onCancel, onSubmit }) => {
+  const [body, setBody] = useState("");
+  const [author, setAuthor] = useState("");
+
+  const handleBodyChange = (event) => {
+    setBody(event.target.value);
+  };
+
+  const handleAuthorChange = (event) => {
+    setAuthor(event.target.value);
+  };
+
+  const handleSubmit = (event) => {
+    event.preventDefault();
+    const post = {
+      body,
+      author,
+    };
+    onSubmit(post);
+    onCancel();
+  };
+
   return (
-    <form className={styles.form}>
+    <form className={styles.form} onSubmit={handleSubmit}>
       <p>
         <label htmlFor="body">Text</label>
         <textarea
           id="body"
           required
           rows={3}
-          onChange={onBodyChange}
+          onChange={handleBodyChange}
         ></textarea>
       </p>
       <p>{body}</p>
@@ -20,7 +42,7 @@ const NewPost = ({ onBodyChange, onNameChange, onCancel, body }) => {
           type="text"
           id="name"
           required
-          onChange={onNameChange}
+          onChange={handleAuthorChange}
         ></textarea>
       </p>
       <p className={styles.actions}>
@@ -34,10 +56,8 @@ const NewPost = ({ onBodyChange, onNameChange, onCancel, body }) => {
 };
 
 NewPost.propTypes = {
-  onBodyChange: PropTypes.func.isRequired,
-  onNameChange: PropTypes.func.isRequired,
   onCancel: PropTypes.func.isRequired,
-  body: PropTypes.string,
+  onSubmit: PropTypes.func.isRequired,
 };
 
 export default NewPost;

@@ -1,41 +1,27 @@
-import PropTypes from "prop-types";
 import { useState } from "react";
+
+import PropTypes from "prop-types";
 import NewPost from "../NewPost/NewPost";
-import Post from "../Post/Post";
 import Modal from "../Modal/Modal";
+
 import styles from "./PostsList.module.css";
 
 function PostsList({ modalIsOpen, toggleModal }) {
-  const [body, setBody] = useState("");
-  const [author, setAuthor] = useState("");
+  const [posts, setPosts] = useState([]);
 
-  const handleBodyChange = (event) => {
-    setBody(event.target.value);
-  };
-
-  const handleAuthorChange = (event) => {
-    setAuthor(event.target.value);
+  const addPost = (post) => {
+    setPosts([post, ...posts]);
   };
 
   return (
     <>
       {modalIsOpen && (
         <Modal onClose={toggleModal}>
-          <NewPost
-            onBodyChange={handleBodyChange}
-            onNameChange={handleAuthorChange}
-            onCancel={toggleModal}
-            body={body}
-            author={author}
-          />
+          <NewPost onCancel={toggleModal} onSubmit={addPost} />
         </Modal>
       )}
 
-      <ul className={styles.posts}>
-        <Post author={author} body={body} />
-
-        <Post author="Jane" body="Next.js is awesome" />
-      </ul>
+      <ul className={styles.posts}></ul>
     </>
   );
 }
