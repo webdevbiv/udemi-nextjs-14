@@ -1,7 +1,8 @@
 import { useState } from "react";
-import "./App.css";
 import MainHeader from "./components/MainHeader/MainHeader";
 import PostsList from "./components/PostsList/PostsList";
+
+import "./App.css";
 
 function App() {
   const [modalIsOpen, setModalIsOpen] = useState(false);

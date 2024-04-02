@@ -1,12 +1,8 @@
 import PropTypes from "prop-types";
+
 import styles from "./Post.module.css";
-// const names = ["Dima", "Alex", "Kate"];
 
-function Post(props) {
-  const { author, body } = props;
-  // const randomIndex = Math.floor(Math.random() * names.length);
-  // const chosenName = names[randomIndex];
-
+function Post({ author, body }) {
   return (
     <li className={styles.post}>
       <p className={styles.author}>{author}</p>
@@ -16,8 +12,8 @@ function Post(props) {
 }
 
 Post.propTypes = {
-  author: PropTypes.any,
-  body: PropTypes.any,
+  author: PropTypes.string.isRequired,
+  body: PropTypes.string.isRequired,
 };
 
 export default Post;
