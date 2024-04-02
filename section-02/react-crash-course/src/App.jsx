@@ -1,14 +1,10 @@
-import Post from "./components/Post";
 import "./App.css";
+import PostsList from "./components/PostsList/PostsList";
 
 function App() {
   return (
     <main>
-      <h1>Hello, World!</h1>
-      <Post />
-      <Post />
-      <Post />
-      <Post />
+      <PostsList />
     </main>
   );
 }
