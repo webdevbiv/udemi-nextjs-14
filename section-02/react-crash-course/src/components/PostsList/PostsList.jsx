@@ -22,7 +22,7 @@ function PostsList() {
 
   return (
     <>
-      {modalIsOpen ? (
+      {modalIsOpen && (
         <Modal onClose={toggleModal}>
           <NewPost
             onBodyChange={handleBodyChange}
@@ -31,7 +31,7 @@ function PostsList() {
             author={author}
           />
         </Modal>
-      ) : null}
+      )}
 
       <ul className={styles.posts}>
         <Post author={author} body={body} />
