@@ -9,6 +9,7 @@
 
 .form label {
   display: block;
+  text-align: left;
   margin-bottom: 0.05rem;
   color: #eadbfb;
   font-weight: bold;
