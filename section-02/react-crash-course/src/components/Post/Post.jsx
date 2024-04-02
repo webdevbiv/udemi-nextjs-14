@@ -1,3 +1,4 @@
+import PropTypes from "prop-types";
 import styles from "./Post.module.css";
 // const names = ["Dima", "Alex", "Kate"];
 
@@ -13,5 +14,10 @@ function Post(props) {
     </li>
   );
 }
+
+Post.propTypes = {
+  author: PropTypes.any,
+  body: PropTypes.any,
+};
 
 export default Post;

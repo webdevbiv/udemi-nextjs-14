@@ -1,12 +1,7 @@
-import { useState } from "react";
+import PropTypes from "prop-types";
 import styles from "./NewPost.module.css";
 
-const NewPost = () => {
-  const [body, setBody] = useState("");
-  function changeBodyHandler(e) {
-    setBody(e.target.value);
-  }
-
+const NewPost = (props) => {
   return (
     <form className={styles.form}>
       <p>
@@ -15,16 +10,27 @@ const NewPost = () => {
           id="body"
           required
           rows={3}
-          onChange={changeBodyHandler}
+          onChange={props.onBodyChange}
         ></textarea>
       </p>
-      <p>{body}</p>
+      <p>{props.body}</p>
       <p>
-        <label htmlFor="name">Name</label>
-        <textarea name="" id="name" required></textarea>
+        <label htmlFor="name">Your name</label>
+        <textarea
+          name=""
+          id="name"
+          required
+          onChange={props.onNameChange}
+        ></textarea>
       </p>
     </form>
   );
+};
+
+NewPost.propTypes = {
+  onBodyChange: PropTypes.func.isRequired,
+  onNameChange: PropTypes.func.isRequired,
+  body: PropTypes.string,
 };
 
 export default NewPost;
