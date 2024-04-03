@@ -2,13 +2,11 @@ import { useEffect, useState } from "react";
 import PropTypes from "prop-types";
 import nextId from "react-id-generator";
 
-import NewPost from "../NewPost/NewPost";
-import Modal from "../Modal/Modal";
 import Post from "../Post/Post";
 
 import styles from "./PostsList.module.css";
 
-function PostsList({ modalIsOpen, toggleModal }) {
+function PostsList() {
   const [posts, setPosts] = useState([]);
   const [isLoading, setIsLoading] = useState(false);
   const [error, setError] = useState(null);
@@ -34,27 +32,22 @@ function PostsList({ modalIsOpen, toggleModal }) {
     getPosts();
   }, []);
 
-  const addPost = (post) => {
-    fetch("http://localhost:8080/posts", {
-      method: "POST",
-      body: JSON.stringify(post),
-      headers: {
-        "Content-Type": "application/json",
-      },
-    });
-    setPosts((prevPosts) => [post, ...prevPosts]);
-  };
+  // const addPost = (post) => {
+  //   fetch("http://localhost:8080/posts", {
+  //     method: "POST",
+  //     body: JSON.stringify(post),
+  //     headers: {
+  //       "Content-Type": "application/json",
+  //     },
+  //   });
+  //   setPosts((prevPosts) => [post, ...prevPosts]);
+  // };
 
   return (
     <>
-      {modalIsOpen && (
-        <Modal onClose={toggleModal}>
-          <NewPost onCancel={toggleModal} onSubmit={addPost} />
-        </Modal>
-      )}
       {isLoading && <p>Loading...</p>}
       {error && <p>{error}</p>}
-      {!isLoading && posts.length > 0 && (
+      {!isLoading && posts.length > 0 && !error && (
         <ul className={styles.posts}>
           {posts.map((post) => (
             <Post key={nextId()} author={post.author} body={post.body} />

@@ -1,11 +1,13 @@
+import { useNavigate } from "react-router-dom";
 import PropTypes from "prop-types";
 
 import styles from "./Modal.module.css";
 
-const Modal = ({ children, onClose }) => {
+const Modal = ({ children }) => {
+  const navigate = useNavigate();
   const handleBackdropClick = (event) => {
     if (event.target === event.currentTarget) {
-      onClose();
+      navigate("/");
     }
   };
 
