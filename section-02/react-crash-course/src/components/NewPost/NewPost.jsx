@@ -7,21 +7,21 @@ const NewPost = ({ onCancel, onSubmit }) => {
   const [body, setBody] = useState("");
   const [author, setAuthor] = useState("");
 
-  const handleBodyChange = (event) => {
-    setBody(event.target.value);
-  };
-
-  const handleAuthorChange = (event) => {
-    setAuthor(event.target.value);
+  const handlePostChange = ({ target: { id, value } }) => {
+    if (id === "body") {
+      setBody(value);
+    } else if (id === "author") {
+      setAuthor(value);
+    }
   };
 
   const handleSubmit = (event) => {
     event.preventDefault();
-    const post = {
+    const newPost = {
       body,
       author,
     };
-    onSubmit(post);
+    onSubmit(newPost);
     onCancel();
   };
 
@@ -33,7 +33,7 @@ const NewPost = ({ onCancel, onSubmit }) => {
           id="body"
           required
           rows={3}
-          onChange={handleBodyChange}
+          onChange={handlePostChange}
         ></textarea>
       </p>
       <p>{body}</p>
@@ -43,7 +43,7 @@ const NewPost = ({ onCancel, onSubmit }) => {
           type="text"
           id="name"
           required
-          onChange={handleAuthorChange}
+          onChange={handlePostChange}
         ></textarea>
       </p>
       <p className={styles.actions}>
