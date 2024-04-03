@@ -10,7 +10,7 @@ const NewPost = ({ onCancel, onSubmit }) => {
   const handlePostChange = ({ target: { id, value } }) => {
     if (id === "body") {
       setBody(value);
-    } else if (id === "author") {
+    } else if (id === "name") {
       setAuthor(value);
     }
   };
