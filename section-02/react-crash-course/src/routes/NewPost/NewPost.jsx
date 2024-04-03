@@ -1,6 +1,5 @@
 import { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
-import PropTypes from "prop-types";
 import Modal from "../../components/Modal/Modal";
 
 import styles from "./NewPost.module.css";
@@ -62,8 +61,6 @@ const NewPost = () => {
   );
 };
 
-NewPost.propTypes = {
-  onCancel: PropTypes.func.isRequired,
-};
+NewPost.propTypes = {};
 
 export default NewPost;
