@@ -1,1 +1,54 @@
-{"posts":[{"body":"qweqw222","author":"wqeqw222","id":"0.9180299142323738"},{"body":"qweqw111","author":"qweqeq111","id":"0.1829724103778112"},{"body":"qweqw","author":"qweqw","id":"0.8159696982596207"},{"body":"qweqw","author":"qwewe","id":"0.17733902889723496"},{"body":"qweqw","author":"qweqw","id":"0.05376895815137872"},{"request":{},"params":{},"id":"0.7189942282878694"},{"body":"test","author":"test","id":"0.6025695412137588"},{"body":"test","author":"","id":"0.6301671589550994"},{"body":"test","author":"","id":"0.5921831215412345"},{"body":"This course is hopefully very helpful to you!","author":"Maximilian","id":"post-1"}]}
+{
+  "posts": [
+    {
+      "author": "wqeqw222",
+      "body": "qweqw222",
+      "id": "0.9180299142323738"
+    },
+    {
+      "author": "qweqeq111",
+      "body": "qweqw111",
+      "id": "0.1829724103778112"
+    },
+    {
+      "author": "qweqw",
+      "body": "qweqw",
+      "id": "0.8159696982596207"
+    },
+    {
+      "author": "qwewe",
+      "body": "qweqw",
+      "id": "0.17733902889723496"
+    },
+    {
+      "author": "qweqw",
+      "body": "qweqw",
+      "id": "0.05376895815137872"
+    },
+    {
+      "id": "0.7189942282878694",
+      "params": {},
+      "request": {}
+    },
+    {
+      "author": "test",
+      "body": "test",
+      "id": "0.6025695412137588"
+    },
+    {
+      "author": "",
+      "body": "test",
+      "id": "0.6301671589550994"
+    },
+    {
+      "author": "",
+      "body": "test",
+      "id": "0.5921831215412345"
+    },
+    {
+      "author": "Maximilian",
+      "body": "This course is hopefully very helpful to you!",
+      "id": "post-1"
+    }
+  ]
+}

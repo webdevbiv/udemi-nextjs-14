@@ -1,7 +1,7 @@
 import { useLoaderData, Link } from "react-router-dom";
 
-import Modal from "../components/Modal";
 import classes from "./PostDetails.module.css";
+import Modal from "../Modal/Modal";
 
 function PostDetails() {
   const post = useLoaderData();
