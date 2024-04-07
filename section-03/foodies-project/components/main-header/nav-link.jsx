@@ -10,7 +10,12 @@ export default function NavLink({ href, children }) {
   console.log(path, href);
 
   return (
-    <Link href={href} className={path === href ? classes.active : ""}>
+    <Link
+      href={href}
+      className={
+        path === href ? `${classes.link} ${classes.active}` : classes.link
+      }
+    >
       {children}
     </Link>
   );
