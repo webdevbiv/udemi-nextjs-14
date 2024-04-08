@@ -1,5 +1,6 @@
 "use client";
 
+import { useRef } from "react";
 import classes from "./image-picker.module.css";
 export default function ImagePicker({ label, name }) {
   const inputRef = useRef();
