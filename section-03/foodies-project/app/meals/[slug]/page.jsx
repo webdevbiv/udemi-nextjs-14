@@ -1,8 +1,22 @@
 import Image from "next/image";
 
 import { getMealBySlug } from "@/lib/meals";
-import classes from "./page.module.css";
 import NotFoundMeal from "../not-found";
+
+import classes from "./page.module.css";
+
+export async function generateMetadata({ params }) {
+  const meal = getMealBySlug(params.slug);
+
+  if (meal === undefined) {
+    return <NotFoundMeal />;
+  }
+
+  return {
+    title: meal.title,
+    description: meal.summary,
+  };
+}
 
 export default function MealDetailsPage({ params }) {
   const meal = getMealBySlug(params.slug);
