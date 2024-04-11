@@ -11,8 +11,6 @@ export default function EventsSearch(props) {
     const selectedYear = yearRef.current.value;
     const selectedMonth = monthRef.current.value;
 
-    console.log(selectedYear, selectedMonth);
-
     props.onSearch(selectedYear, selectedMonth);
   }
 

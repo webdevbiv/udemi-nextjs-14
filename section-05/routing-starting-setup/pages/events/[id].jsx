@@ -9,7 +9,6 @@ export default function EventDetailPage() {
   const router = useRouter();
   const eventId = router.query.id;
   const event = getEventById(eventId);
-  console.log(event);
 
   if (!event) {
     return <p>No event found!</p>;

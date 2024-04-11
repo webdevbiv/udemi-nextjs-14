@@ -10,9 +10,8 @@ export default function AllEventsPage() {
 
   function searchHandler(year, month) {
     const fullPath = `/events/${year}/${month}`;
-    console.log(fullPath);
 
-    // router.push(fullPath);
+    router.push(fullPath);
   }
 
   return (
