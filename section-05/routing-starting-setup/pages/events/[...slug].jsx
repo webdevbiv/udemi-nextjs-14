@@ -1,8 +1,12 @@
-import { useRouter } from "next/router";
 import React from "react";
-import { getFilteredEvents } from "../../dummy-data";
+
+import { useRouter } from "next/router";
 import EventList from "../../components/events/event-list";
 import ResultsTitle from "../../components/events/results-title";
+import ErrorAlert from "../../components/ui/error-alert";
+import Button from "../../components/ui/button";
+
+import { getFilteredEvents } from "../../dummy-data";
 
 export default function FilteredEventsPage() {
   const router = useRouter();
@@ -29,7 +33,10 @@ export default function FilteredEventsPage() {
   ) {
     return (
       <div className="center">
-        <p>Invalid filter. Please adjust your values!</p>
+        <ErrorAlert>
+          <p>Invalid filter. Please adjust your values!</p>
+        </ErrorAlert>
+        <Button link="/events">Show all events</Button>
       </div>
     );
   }
@@ -39,7 +46,10 @@ export default function FilteredEventsPage() {
   if (!filteredEvents || filteredEvents.length === 0) {
     return (
       <div className="center">
-        <p>No events found for the chosen filter!</p>
+        <ErrorAlert>
+          <p>No events found for the chosen filter!</p>
+        </ErrorAlert>
+        <Button link="/events">Show all events</Button>
       </div>
     );
   }
