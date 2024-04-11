@@ -52,11 +52,13 @@
 @media (min-width: 768px) {
   .form {
     flex-direction: row;
+    width: 100%;
   }
 
   .controls {
-    width: 80%;
+    width: 100%;
     flex-direction: row;
+    justify-content: space-between;
   }
 
   .control select {
