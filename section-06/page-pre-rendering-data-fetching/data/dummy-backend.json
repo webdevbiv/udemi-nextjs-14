@@ -29,6 +29,11 @@
       "description": "This is product 6",
       "id": "p6",
       "title": "Product 6"
+    },
+    {
+      "description": "This is product 6",
+      "id": "p7",
+      "title": "Product 7"
     }
   ]
 }
